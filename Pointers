@@ -1,0 +1,19 @@
+/*
+Pointers
+&-address of the variable
+*-Value stored at the address
+*/
+
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+int i;
+clrscr();
+printf("Enter the value of i: ");
+scanf("%d",&i);
+printf("i=%d\n",i);//5
+printf("&i=%u\n",&i);//65524
+printf("*(&i)=%d\n",*(&i));//5
+getch();
+}
