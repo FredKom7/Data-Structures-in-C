@@ -1,0 +1,21 @@
+#include<stdio.h>
+#include<conio.h>
+struct book
+{
+char name[20];
+int page;
+float price;
+};
+void main()
+{
+struct book b1={"java,500,125.75"};
+struct book *t;
+clrscr();
+printf("sizeof structure %d\n",sizeof(b1));
+t=&b1;
+printf("%s\t\%d\t%f\n",b1.name,b1.page,b1.price);
+printf("%s\t\%d\t%f\n",(*t).name,(*t).page,(*t).price);
+printf("%s\t\%d\t%f\n",t->name,t->page,t->price);
+getch();
+}
+
