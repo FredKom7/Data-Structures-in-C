@@ -14,7 +14,7 @@ void main()
      int i;
      struct Student std[5];
      clrscr();
-     printf("Enter the record of the students: ");
+     printf("*___Enter the record of the students: ___");
      for(i=1;i<5;i++)
      {
 	printf("\nEnter the USN of the student: ");
@@ -30,7 +30,7 @@ void main()
 	std[i].PC=(std[i].c1+std[i].c2+std[i].c3)/3;
 	std[i].PC>90?printf("\nAbove 90pc..GREAT!"):std[i].PC<=60&&std[i].PC>41?printf("\nAbove AVG"):std[i].PC<40?printf("\nBelow 40pc.. FAILED"):printf("\nStudent's PC is above AVG");
      }
-     printf("\nThe details for the student are displayed as follows: ");
+     printf("\n***The details for the student are displayed as follows: ***");
      for(i=1;i<5;i++)
      {
 	printf("\nUSN: %s, \nName: %s, \nCourse_1 marks: %d, \nCourse_2 marks: %d, \nCourse_3 marks: %d, \nPC: %f",std[i].USN,std[i].Name,std[i].c1,std[i].c2,std[i].c3,std[i].PC);
