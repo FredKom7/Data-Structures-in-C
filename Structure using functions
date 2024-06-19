@@ -1,0 +1,21 @@
+//structure using functions
+#include<stdio.h>
+#include<conio.h>
+struct book
+{
+char name[20];
+int page;
+float price;
+};
+void main()
+{
+struct book b1={"java",500,125.75};
+clrscr();
+freddy(b1);
+printf("%s\t%d\t%f\n",b1.name,b1.page,b1.price);
+getch();
+}
+freddy(struct book s1)
+{
+printf("%s\t%d\t%f",s1.name,s1.price);
+}
