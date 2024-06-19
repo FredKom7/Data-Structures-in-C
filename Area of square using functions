@@ -1,0 +1,20 @@
+//AREA OF SQUARE USING FUNCTION
+#include<iostream>
+#include<conio.h>
+int area_of_square(int s)
+{
+int a=s*s;
+cout<<"Area of square for side "<<s<<" is: ";
+return a;
+}
+void main()
+{
+int side1, side2, area;
+cout<<"enter a side of square";
+cin>>side1;
+cout<<area of_square(side1);
+cout<<"\nenter a side of square";
+cin>>side2;
+cout<<area_of_square(side2);
+getch();
+}
