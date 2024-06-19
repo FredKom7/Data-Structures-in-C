@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<conio.h>
+struct Student
+{
+       char USN[10];
+       char Name[20];
+       int c1;
+       int c2;
+       int c3;
+       float PC;
+}std[5];
+void main()
+{
+     int i;
+     struct Student std[5];
+     clrscr();
+     printf("Enter the record of the students: ");
+     for(i=1;i<5;i++)
+     {
+	printf("\nEnter the USN of the student: ");
+	scanf("%s",&std[i].USN);
+	printf("Enter the Name of the student: ");
+	scanf("%s",&std[i].Name);
+	printf("Enter the Course 1 marks of the student: ");
+	scanf("%d",&std[i].c1);
+	printf("Enter the Course 2 marks of the student: ");
+	scanf("%d",&std[i].c2);
+	printf("Enter the Course 3 marks of the student: ");
+	scanf("%d",&std[i].c3);
+	std[i].PC=(std[i].c1+std[i].c2+std[i].c3)/3;
+	std[i].PC>90?printf("\nAbove 90pc..GREAT!"):std[i].PC<=60&&std[i].PC>41?printf("\nAbove AVG"):std[i].PC<40?printf("\nBelow 40pc.. FAILED"):printf("\nStudent's PC is above AVG");
+     }
+     printf("\nThe details for the student are displayed as follows: ");
+     for(i=1;i<5;i++)
+     {
+	printf("\nUSN: %s, \nName: %s, \nCourse_1 marks: %d, \nCourse_2 marks: %d, \nCourse_3 marks: %d, \nPC: %f",std[i].USN,std[i].Name,std[i].c1,std[i].c2,std[i].c3,std[i].PC);
+     }
+getch();
+}
