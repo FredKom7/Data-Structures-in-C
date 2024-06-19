@@ -1,0 +1,30 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+     int i,n,a[50],even=0,odd=0;
+     clrscr();
+     printf("Enter the number of elements in the array: ");
+     scanf("%d",&n);
+     for(i=0;i<n;i++)
+     {
+     printf("Array of elements = ");
+     scanf("%d",&a[i]);
+     }
+     for(i=0;i<n;i++)
+     {
+	if(a[i]%2==0)
+	{
+	  even=even+a[i];
+	}
+	else
+	{
+	  odd=odd+a[i];
+	}
+     }
+     if(even>odd)
+       printf("Even Sum = %d",even);
+     else
+       printf("Odd Sum = %d",odd);
+     getch();
+}
