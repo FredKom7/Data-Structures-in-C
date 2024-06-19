@@ -1,0 +1,35 @@
+#include<stdio.h>
+#include<conio.h>
+#include<math.h> 
+void main() 
+{ 
+float a[50], *ptr, mean, sum=0, std,sumstd=0; 
+int n,i; 
+printf("Enter the number of elements : "); 
+scanf("%d",&n); 
+printf("Enter the array elements :\n"); 
+for( i=0; i<n; i++) 
+scanf("%f",&a[i]); 
+//assigning address of a to pointer ptr 
+ptr = a; 
+//compute the sum 
+for(i=0;i<n;i++) 
+{ 
+sum += *ptr; 
+ptr++; 
+} 
+//compute the mean 
+mean = sum/n; 
+//compute standard deviation 
+ptr = a; 
+for(i=0; i<n; i++) 
+{ 
+sumstd = sumstd + pow((*ptr-mean),2); 
+ptr++; 
+} 
+std = sqrt(sumstd/n); 
+//print sum, mean, & standard deviation 
+printf("Sum = %f\n",sum); 
+printf("Mean = %f\n",mean); 
+printf("Standard Deviation = %f\n",std); 
+} 
