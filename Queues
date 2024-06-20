@@ -1,10 +1,9 @@
 #include <stdio.h> 
-#include<stdlib.h> 
-#define MAX 5 
+#include<stdlib.h>  
 void insert(); 
 void delete(); 
 void display(); 
-int queue_array[MAX]; 
+int queue_array[5];//define size as 5
 int rear = -1; 
 int front = -1; 
 int main() 
