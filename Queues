@@ -38,7 +38,7 @@ while (1)
 void insert() 
 { 
      int item; 
-     if(rear == MAX - 1) 
+     if(rear == 5 - 1) 
      printf("Queue Overflow \n"); 
      else 
      { 
