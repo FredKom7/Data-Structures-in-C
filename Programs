@@ -1,0 +1,445 @@
+/*
+1.Reverse a num:
+#include<stdio.h>
+void main()
+{
+     int n,rem,rev=0;
+     clrscr();
+     printf("Enter the number: ");
+     scanf("%d",&n);
+     while(n!=0)
+     {
+	  rem=n%10;
+	  rev=rev*10+rem;
+	  n=n/10;
+     }
+     printf("Reversed number: %d",rev);
+     getch();
+}
+
+2.Simple Calculator: 
+#include <stdio.h>
+#include <stdlib.h>
+void main()
+{
+    int a,b;
+    char c;
+    clrscr();
+    while(1)
+    {
+	 printf("\n1.Add\n2.Subtract\n3.Multiply\n4.Divide\n5.Modulus\n6.Exit");
+	 printf("\nFirst num: ");
+	 scanf("%d",&a);
+	 printf("Second num: ");
+	 scanf("%d",&b);
+	 printf("Choose an option: ");
+	 scanf(" %c",&c);
+	 switch(c)
+	 {
+	       case'1':
+		    c=a+b;
+		    break;
+	       case'2':
+		    c=a-b;
+		    break;
+	       case'3':
+		    c=a*b;
+		    break;
+	       case'4':
+		    c=a/b;
+		    break;
+	       case'5':
+		    c=a%b;
+		    break;
+	       case'6':
+		    exit(1);
+		    break;
+	       default:
+		    printf("INVALID!!");
+	  }
+    printf("\nResult : %d",c);
+    }
+    getch();
+}    
+
+3. BUBBLE SORTING
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+     int a[100],i,j,n,t;
+     clrscr();
+     printf("Enter the number of elements: \n");
+     scanf("%d",&n);
+     printf("Enter the elements: \n");
+     for(i=0;i<n;i++)
+	scanf("%d",&a[i]);
+     for(i=0;i<n;i++)
+     {
+	for(j=0;j<n-i-1;j++)
+	{
+	   if(a[j]>a[j+1])
+	   {
+	     t = a[j];
+	     a[j] = a[j+1];
+	     a[j+1] = t;
+	   }
+	}
+     }
+     printf("Sorting List in Ascending Order: \n");
+     for(i=0;i<n;i++)
+	 printf("%d\n",a[i]);
+     getch();
+}
+
+4.Merge Sort
+#include<stdio.h>
+#include<conio.h>
+void sort();
+void merge();
+int b[20];
+void main()
+{
+     int n,i,a[20];
+     clrscr();
+     printf("Enter the array size: ");
+     scanf("%d",&n);
+     printf("Enter the array elements: ");
+     for(i=0;i<n;i++)
+     scanf("%d",&a[i]);
+     sort(a,0,n-1);
+     printf("Displaying the sorted array elements: ");
+     for(i=0;i<n;i++)
+     printf("%d\t",a[i]);
+     getch();
+}
+void merge(int a[],int low, int mid, int high)
+{
+     int i=low,j=mid+1,k=low;
+     while(i<=mid&&j<=high)
+     {
+	   if(a[i]<a[j])
+	   {
+	     b[k]=a[i];
+	     k++;
+	     i++;
+	   }
+	   else
+	   {
+	     b[k]=a[j];
+	     k++;
+	     j++;
+	   }
+     }
+     while(i<=mid)
+     {
+	  b[k]=a[i];
+	  k++;
+	  i++;
+     }
+     while(j<=high)
+     {
+	  b[k]=a[j];
+	  k++;
+	  j++;
+     }
+     for(i=low;i<=high;i++)
+     a[i]=b[i];
+}
+void sort(int a[],int low,int high)
+{
+     int mid;
+     if(low<high)
+     {
+       mid=(low+high)/2;
+       sort(a,low,mid);
+       sort(a,mid+1,high);
+       merge(a,low,mid,high);
+     }
+     else
+       return;
+}
+
+5.Binary Search
+#include<stdio.h>
+#include<conio.h>
+int bs(int a[],int key,int low,int high)
+{
+    int mid;
+    if(low<=high)
+    {
+      mid=(low+high)/2;
+      if(key==a[mid])
+	return mid;
+      if(key>mid)
+	return bs(a,key,mid+1,high);
+      else
+	return bs(a,key,low,mid-1);
+    }
+    return -1;
+}
+void main()
+{
+     int a[5],n,i,key,index;
+     clrscr();
+     printf("Enter the number of elements: ");
+     scanf("%d",&n);
+     printf("Enter the elements: ");
+     for(i=0;i<n;i++)
+	scanf("%d",&a[i]);
+     printf("Enter the element to be searched: ");
+     scanf("%d",&key);
+     index=bs(a,key,0,n-1);
+     if(index == -1)
+     {
+       printf("Element is not found..");
+     }
+     else
+       printf("Element is found at position: %d",index+1);
+     getch();
+}
+
+6.SWAP & Call by value & Call by reference
+#include<stdio.h>
+#include<conio.h>
+void Swap(int *a,int *b)
+{
+     int t;
+     t=*a;
+     *a=*b;
+     *b=t;
+}
+void main()
+{
+     int a,b;
+     clrscr();
+     printf("Enter the value of a: ");
+     scanf("%d",&a);
+     printf("Enter the value of b: ");
+     scanf("%d",&b);
+     printf("Call by value before swap: %d %d",a,b);
+     Swap(&a,&b);
+     printf("\nCall by reference after swap: %d %d",a,b);
+     getch();
+}
+
+7.Array of Structures
+#include<stdio.h>
+#include<conio.h>
+struct Student
+{
+       char USN[10];
+       char Name[20];
+       int c1;
+       int c2;
+       int c3;
+       float PC;
+}std[5];
+void main()
+{
+     int i;
+     struct Student std[6];
+     clrscr();
+     printf("__Enter the record of the students: __");
+     for(i=1;i<5;i++)
+     {
+	printf("\nEnter the USN of the student: ");
+	scanf("%s",&std[i].USN);
+	printf("Enter the Name of the student: ");
+	scanf("%s",&std[i].Name);
+	printf("Enter the Course 1 marks of the student: ");
+	scanf("%d",&std[i].c1);
+	printf("Enter the Course 2 marks of the student: ");
+	scanf("%d",&std[i].c2);
+	printf("Enter the Course 3 marks of the student: ");
+	scanf("%d",&std[i].c3);
+	std[i].PC=(std[i].c1+std[i].c2+std[i].c3)/3;
+	std[i].PC>90?printf("\nAbove 90pc..GREAT!"):std[i].PC<=60&&std[i].PC>35?printf("\nAbove AVG"):std[i].PC<35?printf("\nBelow 35pc.. FAILED"):printf("\nStudent's PC is above AVG");
+     }
+     printf("\nThe details for the student are displayed as follows: ");
+     for(i=1;i<5;i++)
+     {
+	printf("\nUSN: %s, \nName: %s, \nCourse_1 marks: %d, \nCourse_2 marks: %d, \nCourse_3 marks: %d, \nPC: %f",std[i].USN,std[i].Name,std[i].c1,std[i].c2,std[i].c3,std[i].PC);
+     }
+getch();
+}
+8. Sum,mean,variance and deviation
+#include<stdio.h>
+#include<conio.h>
+#include<math.h>
+void main()
+{
+     int n,i;
+     float a[100],sum=0,mean=0,variance=0,deviation=0;
+     clrscr();
+     printf("Enter the number of elements: ");
+     scanf("%d",&n);
+     printf("Enter the elements: ");
+     for(i=0;i<n;i++)
+	 scanf("%f",&a[i]);
+     for(i=0;i<n;i++)
+	 sum=sum+a[i];
+	 mean=sum/n;
+	 for(i=0;i<n;i++)
+	     variance+=pow((a[i]-mean),2);
+	     variance=variance/n;
+	     deviation=sqrt(variance);
+	     printf("Sum is: %f\n",sum);
+	     printf("Mean is: %f\n",mean);
+	     printf("Variance is %f\n",variance);
+	     printf("Standard Deviation is %f\n",deviation);
+     getch();
+}
+
+9.Stack Operations
+#include<stdio.h>
+#include<stdlib.h>
+int top=-1,ip_arr[4];
+void push();
+void pop();
+void display();
+int main()
+{
+    int option,v;
+    while(1)
+    {
+	printf("\nChoose an option to perform on the stack");
+	printf("\n1.Push the element\n2.Pop the element\n3.Display the element\n4.EXIT");
+	printf("\n\nEnter the option");
+	scanf("%d",&option);
+	switch(option)
+	{
+	      case 1:
+		  push();
+		  break;
+	      case 2:
+		  pop();
+		  break;
+	      case 3:
+		  display();
+		  break;
+	      case 4:
+		  exit(0);
+		  break;
+	      default:
+		  printf("\nInvalid Option!");
+	}
+    }
+}
+void push()
+{
+     int x;
+     if(top==4-1)
+       printf("\nUNderflow..");
+     else
+     {
+       printf("\nElement to be added is: ");
+       scanf("%d",&x);
+       top=top+1;
+       ip_arr[top]=x;
+     }
+}
+void pop()
+{
+     if(top==-1)
+     {
+       printf("\nUnderflow..");
+     }
+     else
+     {
+       printf("\nElement popped is: %d",ip_arr[top]);
+       top=top+1;
+     }
+}
+void display()
+{
+     int i;
+     if(top==-1)
+       printf("\nUnderflow..");
+     else
+     {
+       for(i=0;i>=0;i--)
+       printf("\n%d",ip_arr[i]);
+     }
+}
+
+10.QUEUES
+#include<stdio.h>
+#include<stdlib.h>
+void enqueue();
+void dequeue();
+void display();
+int queue_arr[5];
+int rear=-1;
+int front=-1;
+int main()
+{
+    int option;
+    while(1)
+    {
+	 printf("\n1.Enqueue\n");
+	 printf("2.Dequeue\n");
+	 printf("3.Display\n");
+	 printf("4.Exit\n");
+	 printf("Enter your option");
+	 scanf("%d",&option);
+	 switch(option)
+	 {
+	       case 1:
+		   enqueue();
+		   break;
+	       case 2:
+		   dequeue();
+		   break;
+	       case 3:
+		   display();
+		   break;
+	       case 4:
+		   exit(1);
+		   break;
+	       default:
+		   printf("WRONG OPTION..\n");
+	 }
+    }
+}
+void enqueue()
+{
+     int item;
+     if(rear==5-1)
+     {
+       printf("Queue Overflow..\n");
+     }
+     else
+     {
+       if(front==-1)
+       front=0;
+       printf("Element to be added in the queue: \n");
+       scanf("%d",&item);
+       rear=rear+1;
+       queue_arr[rear]=item;
+     }
+}
+void dequeue()
+{
+     if(front==-1&&rear==-1)
+       printf("Queue Underflow..\n");
+     else
+       printf("Element to be deleted from the queue is: %d",queue_arr[front]);
+       front=front+1;
+}
+void display()
+{
+     int i;
+     if(front==-1)
+     {
+       printf("Queue is empty..\n");
+     }
+     else
+     {
+       printf("Queue is: %d\n");
+       for(i=front;i<=rear;i++)
+       printf("%d",queue_arr[i]);
+       printf("\n");
+     }
+}
+*/
