@@ -1,3 +1,5 @@
+//I added all the programs in a single file and labeled it numerically 1-10.
+//P.S - Programs can be runned separately not whole...
 /*
 1.Reverse a num:
 #include<stdio.h>
